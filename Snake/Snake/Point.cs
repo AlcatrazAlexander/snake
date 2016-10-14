@@ -11,6 +11,7 @@ namespace Snake
         public int x;
         public int y;
         public char sym;
+        private Point tail;
 
         public Point()
         {
@@ -22,6 +23,34 @@ namespace Snake
             this.x = x;
             this.y = y;
             this.sym = sym;
+        }
+        
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
+        public void Move(int offset, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Left:
+                    x += offset;
+                    break;
+                case Direction.Right:
+                    x -= offset;
+                    break;
+                case Direction.Up:
+                    y += offset;
+                    break;
+                case Direction.Down:
+                    y -= offset;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void Draw()
