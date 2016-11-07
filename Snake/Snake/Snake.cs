@@ -10,11 +10,11 @@ namespace Snake
     {
         public Snake(Point tail, int length, Direction direction)
         {
-            Point p;
+            pList = new List<Point>(length);
 
             for (int i = 0; i < length; i++)
             {
-                p = new Point(tail);
+                Point p = new Point(tail);
                 p.Move(i, direction);
                 pList.Add(p);
             }
