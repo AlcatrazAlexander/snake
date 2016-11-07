@@ -11,7 +11,7 @@ namespace Snake
         public int x;
         public int y;
         public char sym;
-        private Point tail;
+        //private Point tail;
 
         public Point()
         {
@@ -37,10 +37,10 @@ namespace Snake
             switch (direction)
             {
                 case Direction.Left:
-                    x += offset;
+                    x -= offset;
                     break;
                 case Direction.Right:
-                    x -= offset;
+                    x += offset;
                     break;
                 case Direction.Up:
                     y += offset;
@@ -51,6 +51,12 @@ namespace Snake
                 default:
                     break;
             }
+        }
+
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
         }
 
         public void Draw()
